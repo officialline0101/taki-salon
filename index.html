@@ -6,86 +6,136 @@
     <title>予約フォーム</title> <!-- タイトルを「予約フォーム」に設定 -->
     <style>
         body {
+            /* フォントをArialまたはsans-serifに設定 */
             font-family: Arial, sans-serif;
+            /* 背景色を淡いグレーに設定 */
             background-color: #f7f7f7;
+            /* フレックスボックスで子要素を配置 */
             display: flex;
+            /* 水平方向に中央寄せ */
             justify-content: center;
+            /* 垂直方向に上寄せ */
             align-items: flex-start;
+            /* ビューポートの高さを100%に設定 */
             height: 100vh;
+            /* ページ全体のマージンを0に設定 */
             margin: 0;
+            /* ページのトップに空白を作る */
             padding-top: 20px;
         }
         .container {
+            /* 背景色を白に設定 */
             background-color: #fff;
+            /* 角を丸める */
             border-radius: 8px;
+            /* ボックスシャドウを設定 */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* 幅を90%に設定 */
             width: 90%;
+            /* 最大幅を500pxに設定 */
             max-width: 500px;
+            /* 内側の余白を設定 */
             padding: 20px;
+            /* ボックスのサイズを境界線を含むように設定 */
             box-sizing: border-box;
         }
         h1 {
+            /* テキストを中央揃え */
             text-align: center;
+            /* 下部のマージンを設定 */
             margin-bottom: 20px;
+            /* フォントサイズを24pxに設定 */
             font-size: 24px;
         }
         label {
+            /* ブロック要素として表示 */
             display: block;
+            /* 下部のマージンを設定 */
             margin-bottom: 10px;
+            /* フォントを太字に設定 */
             font-weight: bold;
         }
         input[type="text"], input[type="tel"], textarea {
+            /* 幅を100%に設定 */
             width: 100%;
+            /* 内側の余白を設定 */
             padding: 10px;
+            /* 下部のマージンを設定 */
             margin-bottom: 20px;
+            /* 境界線のスタイルを設定 */
             border: 1px solid #ccc;
+            /* 角を丸める */
             border-radius: 4px;
+            /* ボックスのサイズを境界線を含むように設定 */
             box-sizing: border-box;
         }
-        .visit-buttons, .symptoms, .menu-sections, .irradiations {
+        .visit-buttons, .symptoms {
+            /* フレックスボックスで子要素を配置 */
             display: flex;
+            /* 子要素を折り返し */
             flex-wrap: wrap;
+            /* 要素間の隙間を設定 */
             gap: 10px;
+            /* 下部のマージンを設定 */
             margin-bottom: 20px;
         }
-        .visit-buttons button, .symptoms button, .menu-sections button, .irradiations button {
+        .visit-buttons button, .symptoms button {
+            /* フレックスアイテムを均等に配置 */
             flex: 1;
+            /* 内側の余白を設定 */
             padding: 10px;
+            /* 境界線のスタイルを設定 */
             border: 1px solid #ccc;
+            /* 角を丸める */
             border-radius: 4px;
+            /* 背景色を設定 */
             background-color: #f7f7f7;
+            /* カーソルをポインタに変更 */
             cursor: pointer;
+            /* ボックスのサイズを境界線を含むように設定 */
             box-sizing: border-box;
+            /* テキストを中央揃え */
             text-align: center;
+            /* テキストを折り返さずに表示 */
             white-space: nowrap;
         }
-        .visit-buttons button.active, .symptoms button.active, .menu-sections button.active, .irradiations button.active {
+        .visit-buttons button.active, .symptoms button.active {
+            /* アクティブ状態のボタンの背景色を設定 */
             background-color: #444;
+            /* アクティブ状態のボタンのテキスト色を設定 */
             color: #fff;
         }
         .date-inputs input[type="datetime-local"] {
+            /* 幅を計算して設定 */
             width: calc(100% - 22px);
+            /* 内側の余白を設定 */
             padding: 10px;
+            /* 下部のマージンを設定 */
             margin-bottom: 20px;
+            /* 境界線のスタイルを設定 */
             border: 1px solid #ccc;
+            /* 角を丸める */
             border-radius: 4px;
+            /* ボックスのサイズを境界線を含むように設定 */
             box-sizing: border-box;
         }
         .submit-button {
+            /* 幅を100%に設定 */
             width: 100%;
+            /* 内側の余白を設定 */
             padding: 15px;
+            /* 境界線を削除 */
             border: none;
+            /* 角を丸める */
             border-radius: 4px;
+            /* 背景色を設定 */
             background-color: #ff4c4c;
+            /* テキスト色を設定 */
             color: #fff;
+            /* フォントサイズを18pxに設定 */
             font-size: 18px;
+            /* カーソルをポインタに変更 */
             cursor: pointer;
-        }
-        .menu-section {
-            display: none;
-        }
-        .menu-section.active {
-            display: block;
         }
     </style>
 </head>
