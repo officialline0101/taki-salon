@@ -270,6 +270,13 @@
             irradiationsCount = element.innerText;
         }
 
+        function showMenu(menu) {
+            document.querySelectorAll('.menu-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(menu).classList.add('active');
+        }
+
         function selectSymptom(element) {
             /* 全ての症状ボタンの選択状態をリセット */
             const allSymptoms = document.querySelectorAll('.symptoms button');
