@@ -518,18 +518,6 @@ function updateCalendar(availability, businessDays) {
         }
     }
 
-    // テーブルのヘッダーを更新
-    updateCalendarHeader(currentDate);
-
-    // 各セルを空白にリセットし、クラスもリセット
-    for (let row of table.rows) {
-        for (let i = 1; i < row.cells.length; i++) {
-            row.cells[i].textContent = '';
-            row.cells[i].removeAttribute('data-date');
-            row.cells[i].classList.remove('available', 'unavailable', 'selected');
-        }
-    }
-
 // テーブルの内容を更新
 for (let i = 0; i < 7; i++) {
     const day = new Date(currentDate);
@@ -609,7 +597,6 @@ for (let i = 0; i < 7; i++) {
 
         cell.setAttribute('data-date', slotStart.toISOString());
     }
-}
 
     // ×と×の間のセル数が3未満の場合、その間のセルを×にする
     for (let j = 0; j < times.length - 1; j++) {
@@ -647,8 +634,8 @@ for (let i = 0; i < 7; i++) {
 
     // ×と×の間のセル数が3未満の場合、その間のセルを×にする部分の後に以下を追加
     for (let i = 0; i < 7; i++) {
-        const twentyOClockRow = times.indexOf('20:30');
-        const twentyOneOClockRow = times.indexOf('21:00');
+        const twentyOClockRow = times.indexOf('18:00');
+        const twentyOneOClockRow = times.indexOf('18:30');
 
         for (let j = twentyOClockRow; j < times.length; j++) {
             const cell = table.rows[j].cells[i + 1];
@@ -662,6 +649,7 @@ for (let i = 0; i < 7; i++) {
             }
         }
     }
+} 
     
         }
 
