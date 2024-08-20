@@ -611,6 +611,40 @@ for (let i = 0; i < 7; i++) {
     }
 }
 
+    // ×と×の間のセル数が3未満の場合、その間のセルを×にする
+    for (let j = 0; j < times.length - 1; j++) {
+        let start = -1;
+        let end = -1;
+
+        // ×の開始位置を見つける
+        if (table.rows[j].cells[i + 1].textContent === '✕') {
+            start = j;
+        }
+
+        // その次の×を見つける
+        for (let k = j + 1; k < times.length; k++) {
+            if (table.rows[k].cells[i + 1].textContent === '✕') {
+                end = k;
+                break;
+            }
+        }
+
+        // ×と×の間のセル数が3未満の場合、その間のセルを×に変更
+        if (end !== -1 && end - start < 4) {
+            for (let k = start + 1; k < end; k++) {
+                const cell = table.rows[k].cells[i + 1];
+                cell.textContent = '✕';
+                cell.classList.remove('available');
+                cell.classList.add('unavailable');
+            }
+        }
+
+        // 次のループで位置を調整
+        if (end !== -1) {
+            j = end - 1; 
+        }
+    }
+
     // ×と×の間のセル数が3未満の場合、その間のセルを×にする部分の後に以下を追加
     for (let i = 0; i < 7; i++) {
         const twentyOClockRow = times.indexOf('20:30');
@@ -628,7 +662,6 @@ for (let i = 0; i < 7; i++) {
             }
         }
     }
-
     
         }
 
