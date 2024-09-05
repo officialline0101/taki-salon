@@ -409,7 +409,7 @@ function selectDate(cell) {
             };
 
 // フォームデータのチェック
-if (!formData.name || !formData.phone) {
+if (!formData.name || !formData.phone|| !formData.selectedSymptom) {
     alert('お名前・電話番号ご記入ください。');
     return;
 }
