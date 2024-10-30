@@ -504,6 +504,17 @@
                 ? `<span style="color:red;"><strong>【オプション】</strong></span><br>${irradiationsCount.split(', ').join('<br>')}`
                 : '・オプション無し';
 
+                // 特定のメニューが選択されている場合、selectedVisitTimeを0に設定
+    if (selectedSymptom.includes('【期間限定モニター募集】まつ毛パーマ') || selectedSymptom.includes('【期間限定モニター募集】オイルリンパマッサージ')) {
+        selectedVisitTime = 0;
+    } else {
+        // 通常の訪問回数ごとの時間設定に基づいて設定
+        selectedVisitTime = visitTimes[visitCount] || 0;
+    }
+
+            // カレンダーを更新するために取得する日付を渡す
+            fetchAvailability(currentDate);
+
             // 所要時間を計算
             let totalMinutes = selectedMenuTime + selectedirradiationsTime + selectedVisitTime;
             let hours = Math.floor(totalMinutes / 60);
