@@ -293,6 +293,7 @@
             <button type="button" onclick="showMenu('female')">脱毛女性限定</button>
             <button type="button" onclick="showMenu('eyebrows')">眉毛メニュー</button>
             <button type="button" onclick="showMenu('whitening')">ホワイトニングメニュー</button>
+            <button type="button" onclick="showMenu('monitor')">期間限定モニター募集</button>
         </div>
 
         <div id="treatment-text" style="margin-bottom: 20px;"></div>
@@ -357,6 +358,15 @@
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">1回照射</button>
                 <button type="button" id="repeatirradiations" onclick="selectirradiations(this)" data-price="15000">2回照射</button>
             </div>
+            </div>
+
+            <div id="monitor" class="menu-section">
+                <div class="highlight-background">
+                    <span class="highlight-text">◆期間限定モニター募集◆</span>
+                </div>
+                <div class="symptoms">
+                    <button type="button" onclick="selectSymptom(this, 'treatment24')" data-price="15000">【期間限定モニター募集】まつ毛エクステ</button>
+                </div>
             </div>
 
         <div class="label">希望日時</div>
@@ -472,8 +482,7 @@
             'Mパーツ': 60,
             'Lパーツ': 60,
             'Dパーツ': 30,
-            '【期間限定モニター募集】まつ毛パーマ': 90,
-            '【期間限定モニター募集】オイルリンパマッサージ': 90
+            '【期間限定モニター募集】まつ毛エクステ': 120
         };
 
 
@@ -637,7 +646,7 @@
             } else if (treatmentId === 'treatment23') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>ホワイトニング1ヶ月通い放題</strong><br>1ヶ月通い放題のお得なプラン♪<br>《来店時に1回500円》<br>※すでに加入されてる方もこちらからご予約ください</div><div style="text-align: right;"><strong>月額4000円</strong></div>`;
             } else if (treatmentId === 'treatment24') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>まつ毛パーマ</strong><br>≪モニター条件≫<br>・目の周りのトラブルがない人<br>・マツエクがついていない<br>・まつ毛パーマ・マツエクをしたことがある人</div><div style="text-align: right;"><strong>料金：1500円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>まつ毛エクステ</strong><br>≪モニター条件≫<br>・目の周りのトラブルがない人<br>・まつ毛パーマ・マツエクをしたことがある人</div><div style="text-align: right;"><strong>料金：2000円</strong></div>`;
             } else if (treatmentId === 'treatment25') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>オイルリンパマッサージ</strong><br>≪モニター条件≫<br>妊娠中・授乳中・生理中ではない方</div><div style="text-align: right;"><strong>料金：2000円</strong></div>`;
             } else {
