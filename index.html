@@ -790,8 +790,8 @@
             };
 
             // フォームデータのチェック
-            if (!formData.name || !formData.phone || !formData.selectedSymptom) {
-                alert('お名前・電話番号・メニューすべてご記入ください。');
+            if (!formData.name || !formData.phone || !formData.selectedSymptom || !formData.dates[0]) {
+                alert('お名前・電話番号・メニュー・希望日時すべてご記入ください。');
                 return;
             }
 
