@@ -292,7 +292,8 @@
             <button type="button" onclick="showMenu('male')">脱毛男性限定</button>
             <button type="button" onclick="showMenu('female')">脱毛女性限定</button>
             <button type="button" onclick="showMenu('eyebrows')">眉毛メニュー</button>
-            <button type="button" onclick="showMenu('whitening')">ホワイトニングメニュー</button>
+            <button type="button" onclick="showMenu('Matsugepama')">まつ毛パーマ</button>
+            <button type="button" onclick="showMenu('oilmassage')">オイルマッサージ</button>
             <button type="button" onclick="showMenu('monitor')">期間限定モニター募集</button>
         </div>
 
@@ -341,33 +342,33 @@
             </div>
         </div>
 
-        <div id="whitening" class="menu-section">
+        <div id="Matsugepama" class="menu-section">
             <div class="highlight-background">
-                <span class="highlight-text">◆ホワイトニングメニュー◆</span>
+                <span class="highlight-text">◆まつ毛パーマ◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment20')" data-price="15000">ホワイトニング</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment21')" data-price="15000">ホワイトニング5回券</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment22')" data-price="15000">ホワイトニング10回</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment23')" data-price="15000">ホワイトニング1ヶ月通い放題</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment20')" data-price="15000">まつ毛パーマ</button>
             </div>
+        </div>
+        
+        <div id="oilmassage" class="menu-section">
             <div class="highlight-background">
-                <span class="highlight-text">照射回数</span>
+                <span class="highlight-text">◆オイルマッサージ◆</span>
             </div>
-            <div class="irradiations">
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">1回照射</button>
-                <button type="button" id="repeatirradiations" onclick="selectirradiations(this)" data-price="15000">2回照射</button>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this, 'treatment21')" data-price="15000">オイルマッサージ</button>
             </div>
+        </div>
+        
+        <div id="monitor" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">◆期間限定メニュー◆</span>
             </div>
-
-            <div id="monitor" class="menu-section">
-                <div class="highlight-background">
-                    <span class="highlight-text">◆期間限定モニター募集◆</span>
-                </div>
-                <div class="symptoms">
-                    <button type="button" onclick="selectSymptom(this, 'treatment24')" data-price="15000">【期間限定モニター募集】まつ毛エクステ</button>
-                </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this, 'treatment24')"
+                    data-price="15000">【期間限定モニター募集】まつ毛エクステ</button>
             </div>
+        </div>
 
         <div class="label">希望日時</div>
         <div class="calendar-container">
@@ -482,6 +483,8 @@
             'Mパーツ': 60,
             'Lパーツ': 60,
             'Dパーツ': 30,
+            'まつ毛パーマ': 90,
+            'オイルマッサージ': 90,
             '【期間限定モニター募集】まつ毛エクステ': 120
         };
 
@@ -638,9 +641,9 @@
             } else if (treatmentId === 'treatment19') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>眉毛スタイリング＋フェイスワックス</strong><br></div><div style="text-align: right;"><strong>初回限定：￥6000<br>通常価格：￥7000</strong></div>`;
             } else if (treatmentId === 'treatment20') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>ホワイトニング</strong><br></div><div style="text-align: right;"><strong>1回照射：￥2800　　　15分<br>2回照射：￥4000　15分×2回</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>まつ毛パーマ</strong><br>【施術注意事項】<br>・目の周りのトラブルがない方<br>・マツエクがついていない方</div><div style="text-align: right;"><strong>料金：3000円</strong></div>`;
             } else if (treatmentId === 'treatment21') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>ホワイトニング回数券：５回</strong><br>※回数券お持ちの方もこちらからご予約ください。</div><div style="text-align: right;"><strong>1回照射：￥13000　　　15分<br>2回照射：￥18000　15分×2回</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>オイルマッサージ</strong><br>【施術注意事項】<br>・妊娠中・授乳中・生理中ではない方</div><div style="text-align: right;"><strong>料金：3500円</strong></div>`;
             } else if (treatmentId === 'treatment22') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>ホワイトニング回数券：１０回</strong><br>※回数券お持ちの方もこちらからご予約ください。</div><div style="text-align: right;"><strong>1回照射：￥25000　　　15分<br>2回照射：￥35000　15分×2回</strong></div>`;
             } else if (treatmentId === 'treatment23') {
