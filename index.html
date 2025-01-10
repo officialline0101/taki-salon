@@ -42,7 +42,7 @@
             margin-bottom: 10px;
             padding: 10px;
             font-weight: bold;
-            background-color: #13ca5e;
+            background-color: #ca9660;
             color: white;
             border-radius: 4px;
             text-align: center;
@@ -106,7 +106,7 @@
             padding: 15px;
             border: none;
             border-radius: 4px;
-            background-color: #ff4c4c;
+            background-color: #ca9660;
             color: #fff;
             font-size: 18px;
             cursor: pointer;
@@ -348,6 +348,10 @@
             </div>
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this, 'treatment20')" data-price="15000">まつ毛パーマ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment25')" data-price="15000">まつ毛パーマ＋眉毛(HBL)</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment26')" data-price="15000">まつ毛パーマ＋眉毛スタイリング</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment27')" data-price="15000">スペシャルセットメニュー</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment28')" data-price="15000">トリプルセットメニュー</button>
             </div>
         </div>
         
@@ -401,7 +405,7 @@
             </div>
         </div>
 
-        <div class="label">メッセージ<br>（質問等お気軽にご記入ください）</div>
+        <div class="label">メッセージ<br>（ご質問・ご要望などをご記入ください）</div>
         <textarea id="message" rows="4" placeholder="メッセージを入力してください"></textarea>
 
         <div class="label">ご予約内容</div>
@@ -485,7 +489,11 @@
             'Dパーツ': 30,
             'まつ毛パーマ': 90,
             'オイルマッサージ': 90,
-            '【期間限定モニター募集】まつ毛エクステ': 120
+            '【期間限定モニター募集】まつ毛エクステ': 120,
+            'まつ毛パーマ＋眉毛(HBL)': 180,
+            'まつ毛パーマ＋眉毛スタイリング': 150,
+            'スペシャルセットメニュー': 210,
+            'トリプルセットメニュー': 180,
         };
 
 
@@ -651,7 +659,13 @@
             } else if (treatmentId === 'treatment24') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>まつ毛エクステ</strong><br>≪モニター条件≫<br>・目の周りのトラブルがない人<br>・まつ毛パーマ・マツエクをしたことがある人</div><div style="text-align: right;"><strong>料金：2000円</strong></div>`;
             } else if (treatmentId === 'treatment25') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>オイルリンパマッサージ</strong><br>≪モニター条件≫<br>妊娠中・授乳中・生理中ではない方</div><div style="text-align: right;"><strong>料金：2000円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>まつ毛パーマ＋眉毛(HBL)</strong><br>同時に【眉毛とまつ毛を美しく】が叶えられる<br>セットになったお得なメニュー♪<br>※HBL→眉毛WAX＋眉毛パーマ</div><div style="text-align: right;"><strong>料金：9980円→8000円</strong></div>`;
+            } else if (treatmentId === 'treatment26') {
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>まつ毛パーマ＋眉毛スタイリング</strong><br>同時に【眉毛とまつ毛を美しく】が叶えられる<br>セットになったお得なメニュー♪<br>※眉毛スタイリング→眉毛WAX or 眉毛パーマ</div><div style="text-align: right;"><strong>料金：7000円→6000円</strong></div>`;
+            } else if (treatmentId === 'treatment27') {
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>スペシャルセットメニュー</strong><br>まつ毛パーマ＋眉毛HBL＋フェイスワックス<br>※HBL→眉毛WAX＋眉毛パーマ<br></div><div style="text-align: right;"><strong>料金：13980円→11000円</strong></div>`;
+            } else if (treatmentId === 'treatment28') {
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>トリプルセットメニュー</strong><br>まつ毛パーマ＋眉毛スタイリング＋フェイスワックス<br>※眉毛スタイリング→眉毛WAX or 眉毛パーマ</div><div style="text-align: right;"><strong>料金：11000円→9980円</strong></div>`;
             } else {
                 treatmentText.innerHTML = '';
             }
