@@ -295,6 +295,7 @@
             <button type="button" onclick="showMenu('Matsugepama')">まつ毛パーマ</button>
             <button type="button" onclick="showMenu('oilmassage')">オイルマッサージ</button>
             <button type="button" onclick="showMenu('monitor')">期間限定モニター募集</button>
+            <button type="button" onclick="showMenu('Unlimited')">2年間通い放題メニュー</button>
         </div>
 
         <div id="treatment-text" style="margin-bottom: 20px;"></div>
@@ -371,6 +372,18 @@
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this, 'treatment24')"
                     data-price="15000">【期間限定モニター募集】まつ毛エクステ</button>
+            </div>
+        </div>
+
+        <div id="Unlimited" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">◆2年間通い放題メニュー◆</span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this)" data-price="15000">【脱毛】髭(2年間通い放題)</button>
+                <button type="button" onclick="selectSymptom(this)" data-price="15000">【脱毛】足(2年間通い放題)</button>
+                <button type="button" onclick="selectSymptom(this)" data-price="15000">【脱毛】腕(2年間通い放題)</button>
+                <button type="button" onclick="selectSymptom(this)" data-price="15000">【女性限定】全身美肌脱毛(2年間通い放題)</button>
             </div>
         </div>
 
@@ -494,6 +507,10 @@
             'まつ毛パーマ＋眉毛スタイリング': 150,
             'スペシャルセットメニュー': 210,
             'トリプルセットメニュー': 180,
+            '【脱毛】髭(2年間通い放題)': 30,
+            '【脱毛】足(2年間通い放題)': 60,
+            '【脱毛】腕(2年間通い放題)': 45,
+            '【女性限定】全身美肌脱毛(2年間通い放題)': 90
         };
 
 
@@ -545,6 +562,8 @@
         <p>${visitCountText}</p>
         <hr>
         <p>${selectedSymptomText}</p>
+        <hr>
+        <p>${irradiationsText}</p>
         <hr>
         <p>${totalTimeText}</p>
         <hr>
@@ -810,7 +829,7 @@
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\nメニュー：${formData.selectedSymptom}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
+                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\nメニュー：${formData.selectedSymptom}${formData.visitCount}${formData.irradiationsCount}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
             }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('当日キャンセルは無いようにお願いいたします。キャンセル料発生いたします。');
