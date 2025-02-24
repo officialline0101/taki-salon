@@ -185,10 +185,31 @@
             cursor: pointer;
         }
 
+        .month-button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .month-button {
+            padding: 10px 20px;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
         .current-month {
             font-size: 16px;
             font-weight: bold;
             color: #444;
+            margin-top: 10px;
+            /* 下にずらす */
+            display: inline-block;
+            /* margin-top を適用しやすくする */
         }
 
         .loading-spinner {
@@ -239,7 +260,7 @@
             background-color: #eef9f5;
             padding: 10px;
             border-radius: 4px;
-            margin-top: 20px;
+            margin-top: 1px;
         }
 
         .highlight-background {
@@ -268,6 +289,33 @@
         .bold-cross {
             font-weight: bold;
             /* 太文字に設定 */
+        }
+
+        .symptoms,
+        .options {
+            display: block;
+            /* ボタンを縦並びに */
+        }
+
+        .symptoms button,
+        .options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f7f7f7;
+            cursor: pointer;
+            box-sizing: border-box;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .symptoms button.active,
+        .options button.active {
+            background-color: #444;
+            color: #fff;
         }
     </style>
 </head>
@@ -298,7 +346,7 @@
             <button type="button" onclick="showMenu('Unlimited')">2年間通い放題メニュー</button>
         </div>
 
-        <div id="treatment-text" style="margin-bottom: 20px;"></div>
+        <div id="treatment-text" style="display: none; margin-bottom: 10px;"></div>
 
         <div id="male" class="menu-section">
             <div class="highlight-background">
@@ -595,6 +643,7 @@
 
             // 選択されたオプションを取得
             const updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
+            const treatmentText = document.getElementById('treatment-text');
 
             if (updatedSelectedButtons.length === 0) {
                 // すべてのボタンの選択が解除された場合、メニュー時間を0にリセット
@@ -619,9 +668,6 @@
 
             // カレンダーを更新するために取得する日付を渡す
             fetchAvailability(currentDate);
-
-            // トリートメントテキストを表示
-            const treatmentText = document.getElementById('treatment-text');
 
             if (treatmentId === 'treatment1') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>【脱毛】顔のみ</strong><br></div><div style="text-align: right;"><strong>料金：5500円</strong></div>`;
@@ -682,6 +728,12 @@
             } else {
                 treatmentText.innerHTML = '';
             }
+
+            // `treatment-text` を選択されたボタンの直後に移動
+            button.parentNode.insertBefore(treatmentText, button.nextSibling);
+
+            // トリートメントテキストを表示
+            treatmentText.style.display = 'block';
 
             // 選択されたメニューの名前と価格を取得
             const symptomName = button.textContent;  // ボタンのテキストを取得
@@ -748,6 +800,9 @@
         }
 
         function showMenu(menu) {
+            // `treatment-text` を非表示にする
+            document.getElementById("treatment-text").style.display = "none";
+
             // すべてのメニューボタンの選択状態をリセット
             document.querySelectorAll('.menu-sections button').forEach(button => {
                 button.classList.remove('active');
