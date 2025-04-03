@@ -580,16 +580,16 @@
 
         function updateDisplayInfo() {
             const name = document.getElementById('name').value;
-            const visitCountText = visitCount ? `・<span style="color:red;"><strong>ご来店回数</strong></span>：${visitCount}` : '・来店回数が未選択です';
+            const visitCountText = visitCount ? `・<span style="color:#ca9660;"><strong>ご来店回数</strong></span>：${visitCount}` : '・来店回数が未選択です';
 
             // メニューが選択されていたら、各メニューを改行して表示
             const selectedSymptomText = selectedSymptom.length > 0
-                ? `<span style="color:red;"><strong>【メニュー】</strong></span><br>${selectedSymptom.join('<br>')}`
+                ? `<span style="color:#ca9660;"><strong>【メニュー】</strong></span><br>${selectedSymptom.join('<br>')}`
                 : '・メニューが未選択です';
 
             // オプションが選択されていたら、各オプションを改行して表示
             const irradiationsText = irradiationsCount
-                ? `<span style="color:red;"><strong>【オプション】</strong></span><br>${irradiationsCount.split(', ').join('<br>')}`
+                ? `<span style="color:#ca9660;"><strong>【オプション】</strong></span><br>${irradiationsCount.split(', ').join('<br>')}`
                 : '・オプション無し';
 
                 // 特定のメニューが選択されている場合、selectedVisitTimeを0に設定
@@ -609,17 +609,17 @@
             let minutes = totalMinutes % 60;
 
             // 所要時間の表示形式：○○時間○○分
-            let totalTimeText = `・<span style="color:red;"><strong>所要時間</strong></span>：${hours > 0 ? hours + '時間' : ''}${minutes}分`;
+            let totalTimeText = `・<span style="color:#ca9660;"><strong>所要時間</strong></span>：${hours > 0 ? hours + '時間' : ''}${minutes}分`;
 
             // 合計金額の表示
-            const totalAmountText = `・<span style="color:red;"><strong>合計金額</strong></span>：¥${menuPrice + optionsPrice}`;
+            const totalAmountText = `・<span style="color:#ca9660;"><strong>合計金額</strong></span>：¥${menuPrice + optionsPrice}`;
 
             // 希望日時が選択された場合の表示
-            const selectedDateText = selectedFullDate ? `・<span style="color:red;"><strong>希望日時</strong></span>：${selectedFullDate}` : '・日時が未選択です';
+            const selectedDateText = selectedFullDate ? `・<span style="color:#ca9660;"><strong>希望日時</strong></span>：${selectedFullDate}` : '・日時が未選択です';
 
             // displayInfo要素に情報を表示
             document.getElementById('displayInfo').innerHTML = `
-        <p>・<span style="color:red;"><strong>お名前</strong></span>：${name}</p>
+        <p>・<span style="color:#ca9660;"><strong>お名前</strong></span>：${name}</p>
         <hr>
         <p>${visitCountText}</p>
         <hr>
