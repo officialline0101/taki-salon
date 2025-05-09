@@ -1092,6 +1092,30 @@
                         cell.textContent = '✕';
                         cell.classList.add('unavailable');
                     }
+// 火曜日の16:00以降は常に✕
+else if (
+    slotStart.getDay() === 2 &&
+    (
+        slotStart.getHours() > 16 || // 17:00以降
+        (slotStart.getHours() === 16 && slotStart.getMinutes() >= 0) // 16:00〜16:59
+    )
+) {
+    cell.textContent = '✕';
+    cell.classList.add('unavailable');
+}
+// 水曜日の8:00～15:59および16:31～22:00は常に✕
+else if (
+    slotStart.getDay() === 3 &&
+    (
+        (slotStart.getHours() >= 8 && slotStart.getHours() < 16) || // 8:00〜15:59
+        (slotStart.getHours() === 16 && slotStart.getMinutes() >= 29) || // 16:31〜16:59
+        (slotStart.getHours() > 16 && slotStart.getHours() < 22) || // 17:00〜21:59
+        (slotStart.getHours() === 22 && slotStart.getMinutes() === 0) // 22:00ぴったり
+    )
+) {
+    cell.textContent = '✕';
+    cell.classList.add('unavailable');
+}
                     // 営業日でかつ他のイベントがない場合
                     else if (isBusinessDay && count === 0) {
                         cell.textContent = '◯';
