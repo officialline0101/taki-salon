@@ -1092,12 +1092,11 @@
                         cell.textContent = '✕';
                         cell.classList.add('unavailable');
                     }
-// 火曜日の16:00以降は常に✕
+// 月曜日の14:00以降は常に✕
 else if (
-    slotStart.getDay() === 1 &&
+    slotStart.getDay() === 1 && // 月曜日
     (
-        slotStart.getHours() > 14 || // 17:00以降
-        (slotStart.getHours() === 20 && slotStart.getMinutes() >= 0) // 16:00〜16:59
+        slotStart.getHours() >= 14
     )
 ) {
     cell.textContent = '✕';
