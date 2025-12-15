@@ -807,7 +807,7 @@
                         if(conflict) isOK = false;
                     }
                     
-// 曜日ごとの不可時間設定
+                    // 曜日ごとの不可時間設定
                     // 日曜日(0): 終日NG
                     if(day.getDay() === 0) isOK = false;
 
@@ -869,11 +869,28 @@
         function previousWeek() { currentDate.setDate(currentDate.getDate()-7); fetchAvailability(currentDate); }
 
         function submitForm() {
-            if(!selectedFullDate) return alert('日時を選択してください');
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            if (!name) return alert('お名前を入力してください');
+            if (!phone) return alert('電話番号を入力してください');
+            if (!visitCount) return alert('ご来店回数を選択してください');
+            if (selectedSymptom.length === 0) return alert('メニューを選択してください');
+            if (!selectedFullDate) return alert('日時を選択してください');
+
+            // ご希望のフォーマットでテキストを作成
+            const text = `【予約フォーム】\nお名前：${name}\n電話番号：${phone}\nご来店回数：${visitCount}\nメニュー：${selectedSymptom.join(', ')}\n希望日時：\n ${selectedFullDate}\nメッセージ：${message}`;
+
             liff.sendMessages([{
                 type: 'text',
-                text: `予約: ${document.getElementById('name').value}\n${selectedSymptom}\n${selectedFullDate}`
-            }]).then(() => liff.closeWindow());
+                text: text
+            }]).then(() => {
+                liff.closeWindow();
+            }).catch((err) => {
+                console.error('Error sending message:', err);
+                alert('メッセージの送信に失敗しました。LINEアプリから開いているか確認してください。');
+            });
         }
     </script>
 </body>
