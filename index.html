@@ -353,6 +353,7 @@
         <div style="text-align:center; font-size:12px; margin-bottom:15px; color:#aaa;">メニューをお選びください</div>
         
         <div class="menu-sections">
+            <button type="button" onclick="showMenu('campaign')" style="grid-column: 1 / -1;">キャンペーンメニュー<br><span style="font-size:10px; color:#888;">CAMPAIGN</span></button>
             <button type="button" onclick="showMenu('male')">メンズ脱毛<br><span style="font-size:10px; color:#888;">Waxing MEN'S</span></button>
             <button type="button" onclick="showMenu('female')">レディース脱毛<br><span style="font-size:10px; color:#888;">Waxing LADIES</span></button>
             <button type="button" onclick="showMenu('eyebrows')">眉毛メニュー<br><span style="font-size:10px; color:#888;">EYEBROW</span></button>
@@ -363,6 +364,17 @@
         </div>
 
         <div id="treatment-text"></div>
+
+        <div id="campaign" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">CAMPAIGN MENU</span><br>
+                <span style="font-size:12px; display:block; margin-top:5px;">キャンペーンメニュー（4月末日まで）</span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this, 'treatment_cp1')" data-price="2000">【キャンペーン】ヒゲ脱毛</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment_cp2')" data-price="3000">【キャンペーン】VIO脱毛＋顔脱毛</button>
+            </div>
+        </div>
 
         <div id="male" class="menu-section">
             <div class="highlight-background">
@@ -544,7 +556,8 @@
             '【脱毛】髭(2年間通い放題)': 30, '【脱毛】足(2年間通い放題)': 60,
             '【脱毛】腕(2年間通い放題)': 45, '【女性限定】全身美肌脱毛(2年間通い放題)': 90,
             '眉毛WAX＋眉毛脱毛': 90, '【脱毛】両腕': 45, '【脱毛】両足': 60,
-            '【脱毛】両脇': 30, '眉毛脱毛': 30
+            '【脱毛】両脇': 30, '眉毛脱毛': 30,
+            '【キャンペーン】ヒゲ脱毛': 45, '【キャンペーン】VIO脱毛＋顔脱毛': 45
         };
         let selectedMenuTime = 0;
 
@@ -700,6 +713,10 @@
                     treatmentText.innerHTML = `<div style="text-align: left;"><strong>【脱毛】両足</strong><br></div><div style="text-align: right;"><strong>料金：4500円</strong></div>`;
                 } else if (treatmentId === 'treatment34') {
                     treatmentText.innerHTML = `6回券<br>通常 1回4,000円 → 1回あたり3,500円<br>合計 21,000円<br><br>10回券<br>通常 1回4,000円 → 1回あたり3,500円<br>合計 35,000円<br>（眉毛スタイリング1回無料券付き）<br><br><div style="text-align: left;"><strong>※既にご購入されている方はこちらからご予約ください<br>※購入希望の方はこちらからご予約いただきますと当日ご案内させていただきます。</strong><br></div><div style="text-align: right;"></div>`;
+                } else if (treatmentId === 'treatment_cp1') {
+                    treatmentText.innerHTML = `<div style="text-align: left;"><strong>【男性限定キャンペーン】</strong><br>ヒゲ脱毛初めての方のみ半額で受けられます😊<br>興味はあるけど踏み出せなかった方へのお試しメニューです✨<br><br>条件：ヒゲ脱毛が初めての方<br>期間：4月末日まで</div><div style="text-align: right;"><strong>通常：4,000円→<span style="color:#e74c3c;">キャンペーン：2,000円</span></strong></div>`;
+                } else if (treatmentId === 'treatment_cp2') {
+                    treatmentText.innerHTML = `<div style="text-align: left;"><strong>【女性限定キャンペーン】</strong><br>VIO脱毛の料金で顔脱毛がついてくるお得なキャンペーンメニューです✨<br>気になっていた方は1度で2箇所の脱毛効果を感じていただけます🌿<br><br>条件：VIO脱毛が初めての方<br>期間：4月末日まで</div><div style="text-align: right;"><strong>通常：5,500円→<span style="color:#e74c3c;">キャンペーン：3,000円</span></strong></div>`;
                 } else {
                     treatmentText.innerHTML = '';
                 }
