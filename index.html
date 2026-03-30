@@ -623,6 +623,10 @@
             document.querySelectorAll('.symptoms button').forEach(b => b.classList.remove('active'));
             checkCalendarVisibility();
             updateDisplayInfo();
+            // 表示されたメニューセクションの位置までスクロール
+            setTimeout(() => {
+                document.getElementById(menuId)?.scrollIntoView({behavior:'smooth', block:'center'});
+            }, 100);
         }
 
         function selectVisit(el) {
@@ -630,6 +634,10 @@
             el.classList.add('active');
             visitCount = el.innerText;
             updateDisplayInfo();
+            // menu-sectionsの位置までスクロール
+            setTimeout(() => {
+                document.querySelector('.menu-sections')?.scrollIntoView({behavior:'smooth', block:'center'});
+            }, 100);
         }
 
         function selectSymptom(btn, treatmentId) {
