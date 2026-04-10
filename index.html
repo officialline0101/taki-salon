@@ -836,14 +836,21 @@
                     // 日曜日(0): 終日NG
                     if(day.getDay() === 0) isOK = false;
 
-                    // 月曜日(1): 14:00以降NG
-                    if(day.getDay() === 1 && slotStart.getHours() >= 14) isOK = false;
+                    // 月曜日(1): 15:00以降NG
+                    if(day.getDay() === 1 && slotStart.getHours() >= 15) isOK = false;
                     
-                    // 火曜日(2): 16:00〜16:29の枠のみNG (16:00開始の枠をピンポイントでNGに)
-                    if(day.getDay() === 3 && slotStart.getHours() === 16 && slotStart.getMinutes() === 0) isOK = false;
+                    // 火曜日(2): 13:00〜14:30 NG、16:30〜18:30 NG（15:00/15:30/16:00は予約可能）
+                    if(day.getDay() === 2) {
+                        const h = slotStart.getHours();
+                        const mins = slotStart.getMinutes();
+                        // 13:00〜14:30をNG（13:00, 13:30, 14:00, 14:30）
+                        if(h >= 13 && h <= 14) isOK = false;
+                        // 16:30〜18:30をNG（16:30, 17:00, 17:30, 18:00, 18:30）
+                        if((h === 16 && mins >= 30) || h >= 17) isOK = false;
+                    }
 
-                    // 水曜日(3): 16:00以降NG
-                    if(day.getDay() === 2 && slotStart.getHours() >= 16) isOK = false;
+                    // 水曜日(3): 16:00の枠のみNG
+                    if(day.getDay() === 3 && slotStart.getHours() === 16 && slotStart.getMinutes() === 0) isOK = false;
 
                     if(isOK) {
                         cell.textContent = ''; 
