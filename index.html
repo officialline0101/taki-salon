@@ -843,8 +843,8 @@
                     if(day.getDay() === 2) {
                         const h = slotStart.getHours();
                         const mins = slotStart.getMinutes();
-                        // 13:00〜14:30をNG（13:00, 13:30, 14:00, 14:30）
-                        if(h >= 13 && h <= 14) isOK = false;
+                        // 13:00〜15:30をNG（13:00, 13:30, 14:00, 14:30, 15:00, 15:30）
+                        if(h >= 13 && h <= 15) isOK = false;
                         // 16:30〜18:30をNG（16:30, 17:00, 17:30, 18:00, 18:30）
                         if((h === 16 && mins >= 30) || h >= 17) isOK = false;
                     }
