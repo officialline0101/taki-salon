@@ -191,7 +191,7 @@
         #treatment-text {
             background-color: rgba(198, 168, 124, 0.1); color: #eee;
             border-left: 3px solid var(--accent-gold); padding: 15px;
-            margin-bottom: 20px; font-size: 13px; line-height: 1.6;
+            margin-bottom: 20px; font-size: 15px; line-height: 1.8;
             display: none;
         }
 
@@ -368,11 +368,10 @@
         <div id="campaign" class="menu-section">
             <div class="highlight-background">
                 <span class="highlight-text">CAMPAIGN MENU</span><br>
-                <span style="font-size:12px; display:block; margin-top:5px;">キャンペーンメニュー（4月末日まで）</span>
+                <span style="font-size:12px; display:block; margin-top:5px;">キャンペーンメニュー（6月末日まで）</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment_cp1')" data-price="2000">【キャンペーン】ヒゲ脱毛</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment_cp2')" data-price="3000">【キャンペーン】VIO脱毛＋顔脱毛</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment_cp3')" data-price="5500">眉スタイリング＋フェイスWAX</button>
             </div>
         </div>
 
@@ -557,7 +556,7 @@
             '【脱毛】腕(2年間通い放題)': 45, '【女性限定】全身美肌脱毛(2年間通い放題)': 90,
             '眉毛WAX＋眉毛脱毛': 90, '【脱毛】両腕': 45, '【脱毛】両足': 60,
             '【脱毛】両脇': 30, '眉毛脱毛': 30,
-            '【キャンペーン】ヒゲ脱毛': 45, '【キャンペーン】VIO脱毛＋顔脱毛': 45
+            '眉スタイリング＋フェイスWAX': 75
         };
         let selectedMenuTime = 0;
 
@@ -721,10 +720,8 @@
                     treatmentText.innerHTML = `<div style="text-align: left;"><strong>【脱毛】両足</strong><br></div><div style="text-align: right;"><strong>料金：4500円</strong></div>`;
                 } else if (treatmentId === 'treatment34') {
                     treatmentText.innerHTML = `6回券<br>通常 1回4,000円 → 1回あたり3,500円<br>合計 21,000円<br><br>10回券<br>通常 1回4,000円 → 1回あたり3,500円<br>合計 35,000円<br>（眉毛スタイリング1回無料券付き）<br><br><div style="text-align: left;"><strong>※既にご購入されている方はこちらからご予約ください<br>※購入希望の方はこちらからご予約いただきますと当日ご案内させていただきます。</strong><br></div><div style="text-align: right;"></div>`;
-                } else if (treatmentId === 'treatment_cp1') {
-                    treatmentText.innerHTML = `<div style="text-align: left;"><strong>【男性限定キャンペーン】</strong><br>ヒゲ脱毛初めての方のみ半額で受けられます😊<br>興味はあるけど踏み出せなかった方へのお試しメニューです✨<br><br>条件：ヒゲ脱毛が初めての方<br>期間：4月末日まで</div><div style="text-align: right;"><strong>通常：4,000円→<span style="color:#e74c3c;">キャンペーン：2,000円</span></strong></div>`;
-                } else if (treatmentId === 'treatment_cp2') {
-                    treatmentText.innerHTML = `<div style="text-align: left;"><strong>【女性限定キャンペーン】</strong><br>VIO脱毛の料金で顔脱毛がついてくるお得なキャンペーンメニューです✨<br>気になっていた方は1度で2箇所の脱毛効果を感じていただけます🌿<br><br>条件：VIO脱毛が初めての方<br>期間：4月末日まで</div><div style="text-align: right;"><strong>通常：5,500円→<span style="color:#e74c3c;">キャンペーン：3,000円</span></strong></div>`;
+                } else if (treatmentId === 'treatment_cp3') {
+                    treatmentText.innerHTML = `<div style="text-align: left;"><strong style="font-size:16px;">眉スタイリング＋フェイスWAX</strong><br><br>眉毛だけじゃなく、<br>お顔の産毛まで整えることで<br>お肌の透明感やメイクノリがぐんっとUP🤍<br><br>眉WAX＋フェイスWAXのセットで<br>"垢抜け感"が一気に変わります✨<br><br>✔︎ お肌がトーンアップして見える<br>✔︎ ファンデが浮きにくい<br>✔︎ スキンケアの浸透も◎<br>✔︎ 清潔感のあるお顔印象に<br><br>眉とお肌を一緒に整えて<br>もっと自分の顔を好きに🪞<br><br><span style="font-size:13px; color:#bbb;">期間：6月末日まで</span></div><div style="text-align: right; margin-top:12px;"><strong style="font-size:16px;">通常：7,000円→<span style="color:#e74c3c;">キャンペーン：5,500円</span></strong></div>`;
                 } else {
                     treatmentText.innerHTML = '';
                 }
