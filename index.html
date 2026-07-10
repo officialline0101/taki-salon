@@ -836,12 +836,10 @@
                     // 月曜日(1): 15:00以降NG
                     if(day.getDay() === 1 && slotStart.getHours() >= 15) isOK = false;
                     
-                    // 火曜日(2): 13:00〜14:30 NG、16:30〜18:30 NG（15:00/15:30/16:00は予約可能）
+                    // 火曜日(2): 16:30〜18:30 NG
                     if(day.getDay() === 2) {
                         const h = slotStart.getHours();
                         const mins = slotStart.getMinutes();
-                        // 13:00〜15:30をNG（13:00, 13:30, 14:00, 14:30, 15:00, 15:30）
-                        if(h >= 13 && h <= 15) isOK = false;
                         // 16:30〜18:30をNG（16:30, 17:00, 17:30, 18:00, 18:30）
                         if((h === 16 && mins >= 30) || h >= 17) isOK = false;
                     }
