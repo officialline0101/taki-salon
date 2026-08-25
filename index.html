@@ -180,7 +180,6 @@
         #eyebrows .highlight-background { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://www.dropbox.com/scl/fi/h9vrgofggvq4hscmucxoe/.jpg?rlkey=v6u7rxtdazzcggf44mlv1jp6a&st=45ze5bmq&raw=1'); }
         #Matsugepama .highlight-background { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://www.dropbox.com/scl/fi/csia0u8wih82rc3udw1d8/.jpg?rlkey=kchfbafv5oq34yf1oazzgdvvy&st=xu2m2nov&raw=1'); }
         #oilmassage .highlight-background { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://www.dropbox.com/scl/fi/8c8t0ocafsxzwtey82fli/.jpg?rlkey=1mu0wcpzi8tbxwyhjieg8zcjw&st=ydsy5l2z&raw=1'); }
-        #monitor .highlight-background { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://www.dropbox.com/scl/fi/k2ubh761skmmelpsvedn2/.jpg?rlkey=b4ckgpdcv15dwn9nhgd3t9688&st=8zy16tqn&raw=1'); }
 
         .highlight-text {
             font-family: var(--font-en); font-size: 20px; letter-spacing: 0.15em;
@@ -359,8 +358,7 @@
             <button type="button" onclick="showMenu('eyebrows')">眉毛メニュー<br><span style="font-size:10px; color:#888;">EYEBROW</span></button>
             <button type="button" onclick="showMenu('Matsugepama')">まつ毛パーマ<br><span style="font-size:10px; color:#888;">EYELASH PERM</span></button>
             <button type="button" onclick="showMenu('oilmassage')">オイルマッサージ<br><span style="font-size:10px; color:#888;">OIL MASSAGE</span></button>
-            <button type="button" onclick="showMenu('monitor')">まつ毛エクステ<br><span style="font-size:10px; color:#888;">EYELASH EXTE</span></button>
-            <button type="button" onclick="showMenu('Unlimited')" style="grid-column: 1 / -1;">通い放題<br><span style="font-size:10px; color:#888;">UNLIMITED</span></button>
+            <button type="button" onclick="showMenu('Unlimited')">通い放題<br><span style="font-size:10px; color:#888;">UNLIMITED</span></button>
         </div>
 
         <div id="treatment-text"></div>
@@ -448,16 +446,6 @@
             </div>
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this, 'treatment21')" data-price="15000">オイルマッサージ</button>
-            </div>
-        </div>
-
-        <div id="monitor" class="menu-section">
-            <div class="highlight-background">
-                <span class="highlight-text">EYELASH EXTE</span><br>
-                <span style="font-size:12px; display:block; margin-top:5px;">まつ毛エクステ</span>
-            </div>
-            <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment24')" data-price="15000">まつ毛エクステ</button>
             </div>
         </div>
 
@@ -549,7 +537,7 @@
             'ハリウッドブロウリフト': 90, '眉毛スタイリング：回数券': 60,
             '眉毛スタイリング': 60, 'フェイスワックス': 60, 'HBL+フェイスワックス': 90,
             'HBL+ヘットマッサージ': 90, '眉毛スタイリング+フェイスワックス': 90,
-            'まつ毛パーマ': 90, 'オイルマッサージ': 90, 'まつ毛エクステ': 120,
+            'まつ毛パーマ': 90, 'オイルマッサージ': 90,
             'まつ毛パーマ＋眉毛(HBL)': 180, 'まつ毛パーマ＋眉毛スタイリング': 150,
             'スペシャルセットメニュー': 210, 'トリプルセットメニュー': 180,
             '【脱毛】髭(2年間通い放題)': 30, '【脱毛】足(2年間通い放題)': 60,
@@ -700,8 +688,6 @@
                     treatmentText.innerHTML = `<div style="text-align: left;"><strong>ホワイトニング回数券：１０回</strong><br>※回数券お持ちの方もこちらからご予約ください。</div><div style="text-align: right;"><strong>1回照射：￥25000　　　15分<br>2回照射：￥35000　15分×2回</strong></div>`;
                 } else if (treatmentId === 'treatment23') {
                     treatmentText.innerHTML = `<div style="text-align: left;"><strong>ホワイトニング1ヶ月通い放題</strong><br>1ヶ月通い放題のお得なプラン♪<br>《来店時に1回500円》<br>※すでに加入されてる方もこちらからご予約ください</div><div style="text-align: right;"><strong>月額4000円</strong></div>`;
-                } else if (treatmentId === 'treatment24') {
-                    treatmentText.innerHTML = `<div style="text-align: left;"><strong>まつ毛エクステ</strong><br>・まつ毛パーマを１ヶ月以内にしていない人<br>・平日10時〜15時/土曜日10時〜16時までにご来店できる人</div><div style="text-align: right;"><strong>料金：4000円</strong></div>`;
                 } else if (treatmentId === 'treatment25') {
                     treatmentText.innerHTML = `<div style="text-align: left;"><strong>まつ毛パーマ＋眉毛(HBL)</strong><br>同時に【眉毛とまつ毛を美しく】が叶えられる<br>セットになったお得なメニュー♪<br>※HBL→眉毛WAX＋眉毛パーマ</div><div style="text-align: right;"><strong>料金：9980円→8000円</strong></div>`;
                 } else if (treatmentId === 'treatment26') {
