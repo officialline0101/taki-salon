@@ -352,7 +352,7 @@
         <div style="text-align:center; font-size:12px; margin-bottom:15px; color:#aaa;">メニューをお選びください</div>
         
         <div class="menu-sections">
-            <button type="button" onclick="showMenu('campaign')" style="grid-column: 1 / -1; display:none;">キャンペーンメニュー<br><span style="font-size:10px; color:#888;">CAMPAIGN</span></button>
+            <button type="button" onclick="showMenu('campaign')" style="grid-column: 1 / -1;">9月/10月 キャンペーンメニュー<br><span style="font-size:10px; color:#888;">CAMPAIGN</span></button>
             <button type="button" onclick="showMenu('male')">メンズ脱毛<br><span style="font-size:10px; color:#888;">Waxing MEN'S</span></button>
             <button type="button" onclick="showMenu('female')">レディース脱毛<br><span style="font-size:10px; color:#888;">Waxing LADIES</span></button>
             <button type="button" onclick="showMenu('eyebrows')">眉毛メニュー<br><span style="font-size:10px; color:#888;">EYEBROW</span></button>
@@ -366,10 +366,11 @@
         <div id="campaign" class="menu-section">
             <div class="highlight-background">
                 <span class="highlight-text">CAMPAIGN MENU</span><br>
-                <span style="font-size:12px; display:block; margin-top:5px;">キャンペーンメニュー（6月末日まで）</span>
+                <span style="font-size:12px; display:block; margin-top:5px;">9月/10月 キャンペーンメニュー</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment_cp3')" data-price="5500">眉スタイリング＋フェイスWAX</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment_cp4')" data-price="5500">【キャンペーン】眉WAX＋眉毛脱毛</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment_cp5')" data-price="1000">【キャンペーン】両脇脱毛</button>
             </div>
         </div>
 
@@ -544,6 +545,7 @@
             '【脱毛】腕(2年間通い放題)': 45, '【女性限定】全身美肌脱毛(2年間通い放題)': 90,
             '眉毛WAX＋眉毛脱毛': 90, '【脱毛】両腕': 45, '【脱毛】両足': 60,
             '【脱毛】両脇': 30, '眉毛脱毛': 30,
+            '【キャンペーン】眉WAX＋眉毛脱毛': 90, '【キャンペーン】両脇脱毛': 30,
             '眉スタイリング＋フェイスWAX': 75
         };
         let selectedMenuTime = 0;
@@ -708,8 +710,10 @@
                     treatmentText.innerHTML = `<div style="text-align: left;"><strong>【脱毛】両足</strong><br></div><div style="text-align: right;"><strong>料金：4500円</strong></div>`;
                 } else if (treatmentId === 'treatment34') {
                     treatmentText.innerHTML = `6回券<br>通常 1回4,000円 → 1回あたり3,500円<br>合計 21,000円<br><br>10回券<br>通常 1回4,000円 → 1回あたり3,500円<br>合計 35,000円<br>（眉毛スタイリング1回無料券付き）<br><br><div style="text-align: left;"><strong>※既にご購入されている方はこちらからご予約ください<br>※購入希望の方はこちらからご予約いただきますと当日ご案内させていただきます。</strong><br></div><div style="text-align: right;"></div>`;
-                } else if (treatmentId === 'treatment_cp3') {
-                    treatmentText.innerHTML = `<div style="text-align: left;"><strong style="font-size:16px;">眉スタイリング＋フェイスWAX</strong><br><br>眉毛だけじゃなく、<br>お顔の産毛まで整えることで<br>お肌の透明感やメイクノリがぐんっとUP🤍<br><br>眉WAX＋フェイスWAXのセットで<br>"垢抜け感"が一気に変わります✨<br><br>✔︎ お肌がトーンアップして見える<br>✔︎ ファンデが浮きにくい<br>✔︎ スキンケアの浸透も◎<br>✔︎ 清潔感のあるお顔印象に<br><br>眉とお肌を一緒に整えて<br>もっと自分の顔を好きに🪞<br><br><span style="font-size:13px; color:#bbb;">期間：6月末日まで</span></div><div style="text-align: right; margin-top:12px;"><strong style="font-size:16px;">通常：7,000円→<span style="color:#e74c3c;">キャンペーン：5,500円</span></strong></div>`;
+                } else if (treatmentId === 'treatment_cp4') {
+                    treatmentText.innerHTML = `<div style="text-align: left;"><strong style="font-size:16px;">【9月/10月キャンペーン】眉WAX＋眉毛脱毛</strong><br>WAXで形を整えた後、専用脱毛機器で更に毛を生えにくくします✨<br>※セットメニュー初回の方限定</div><div style="text-align: right;"><strong>通常：6,500円<br>キャンペーン価格：5,500円</strong></div>`;
+                } else if (treatmentId === 'treatment_cp5') {
+                    treatmentText.innerHTML = `<div style="text-align: left;"><strong style="font-size:16px;">【9月/10月キャンペーン】両脇脱毛</strong><br>※どなたでも利用可能</div><div style="text-align: right;"><strong>キャンペーン価格：1,000円</strong></div>`;
                 } else {
                     treatmentText.innerHTML = '';
                 }
